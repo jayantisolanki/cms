@@ -1,3 +1,4 @@
+<?php include('../controllers/config.php'); ?>
 <?php include('templates/header.php'); ?>
 <?php
 $message="";
@@ -7,7 +8,7 @@ $row  = mysql_fetch_array($result);
 if(is_array($row)) {
 	$_SESSION["user_login"] = $row['user_login'];
 } else {
-	$message = '<div class="message">Invalid Username or Password!</div>';
+	$message = '<div class="message error">Invalid Username or Password!</div>';
 }
 }
 if(isset($_SESSION["user_login"])) {
