@@ -7,4 +7,5 @@ $siteurl	= 'http://localhost/cms/trunk';
 $backend	= 'http://localhost/cms/trunk/admin';
 $sitename	= 'Simple CMS';
 $sitedesc	= 'Just another CMS site';
+$prefix = ".html";
 ?>

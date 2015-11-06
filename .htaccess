@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9-/]+).html$ page.php?url=$1
+RewriteRule ^([a-zA-Z0-9-/]+).html/$ page.php?url=$1

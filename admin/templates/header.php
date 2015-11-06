@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link type="text/css" href="<?php echo $backend; ?>/css/style.css" rel="stylesheet">
 <script src="<?php echo $backend; ?>/js/modernizr.js" type="text/javascript"></script>
-<script type="text/javascript" src="<?php echo $backend; ?>/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $backend; ?>/js/jquery-min.js"></script>
 <!--[if lte IE 9]>
   <script src="<?php echo $backend; ?>js/ie.js" type="text/javascript"></script>
 <![endif]-->
