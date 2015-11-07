@@ -22,10 +22,17 @@
 	- Search functionality
 
 #Backend 
+	- Pages
+		Title
+		Slug
+		Content
+		SEO title
+		SEO Desc
+		Keyword
+		
 	- Menu Management
 	- Color Scheme Selection
 	- Default Setup / Website / Business / Social link ect.
-	- Add new pages 
 	- Set page order
 	- Hide/Disable pages
 	- Add User for admin acess

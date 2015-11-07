@@ -1,11 +1,17 @@
 <?php
+error_reporting(-1);
 session_start();
-$sql=mysql_connect("localhost","root","");
-mysql_select_db("cms",$sql);
-/* Globle Variable */
-$siteurl	= 'http://localhost/cms/trunk';
-$backend	= 'http://localhost/cms/trunk/admin';
-$sitename	= 'Simple CMS';
-$sitedesc	= 'Just another CMS site';
-$prefix = ".html";
+define("HOST", "localhost"); // The host you want to connect to. 
+define("USER", "root"); 	 // The database username. 
+define("PASSWORD", ""); 	 // The database password. 
+define("DATABASE", "cms");   // The database name.
+
+$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
+if ($mysqli->connect_error) {
+    header("Location: ../error.php?err=Unable to connect to MySQL");
+    exit();
+}
+define("SITE_URL", "http://localhost/cms/trunk");
+define("BACKEND_URL", "http://localhost/cms/trunk/admin");
+define("SITE_NAME", "Simple CMS | Developed by Jayanti Solanki");
 ?>
