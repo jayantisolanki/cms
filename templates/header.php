@@ -13,4 +13,4 @@
 <![endif]-->
 </head>
 <body>
-<?php /*?><div class="loaderDiv"><div class="loader">Loading...</div></div><?php */?>
+<div class="container">

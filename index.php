@@ -1,4 +1,4 @@
-<?php include('controllers/config.php'); ?>
+<?php include('admin/controllers/config.php'); ?>
 <?php include('templates/header.php'); ?>
 <h1>Homepage</h1>
 <?php

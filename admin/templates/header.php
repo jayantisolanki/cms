@@ -13,6 +13,7 @@
 </head>
 <body>
 <div id="wrapper">
+<div class="container">
 <?php if(isset($_SESSION["user_login"])) { ?>
 	Welcome <?php echo $_SESSION["user_login"]; ?>. <a href="<?php echo $backend; ?>/logout.php" tite="Logout">Logout</a>
 <?php } ?>

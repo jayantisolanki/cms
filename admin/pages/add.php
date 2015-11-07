@@ -1,4 +1,4 @@
-<?php include('../../controllers/config.php'); ?>
+<?php include('../controllers/config.php'); ?>
 
 <?php
 function string_limit_words($string) {
@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$newtitle=string_limit_words($title); // First 6 words
 	$urltitle=preg_replace('/[^a-z0-9]/i',' ', $newtitle);
 	$newurltitle=str_replace(" ","-",$newtitle);
-	$url = $newurltitle.$prefix; // Final URL
+	$url = $newurltitle; // Final URL
 	
 	//Inserting values into my_blog table
 	mysql_query("insert into tbl_pages(pagename,pagecontent,pageslug) values('$title','$body','$url')");

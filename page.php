@@ -1,4 +1,4 @@
-<?php include('controllers/config.php'); ?>
+<?php include('admin/controllers/config.php'); ?>
 <?php
 if($_GET['url']){
 	$url=mysql_real_escape_string($_GET['url']);
