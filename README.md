@@ -16,7 +16,7 @@
 	- FAQs
 	- Events
 	- Scheme.org fully loaded
-	- Meta tabs 
+	- Meta tags
 	- Responsive / Support for mobile devices
 	- SEO freindly URL
 	- Search functionality
