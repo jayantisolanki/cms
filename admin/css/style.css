@@ -1,0 +1,5 @@
+.container { padding:10px 0}
+.navbar-header { padding-right:30px;}
+.loginForm { width:400px; margin:100px auto 0; border:1px solid #eee; padding:30px;}
+.loginForm h1 { text-align:center; margin:0 0 30px;}
+.loginForm span { display:block;}

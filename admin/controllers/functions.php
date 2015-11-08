@@ -1,13 +1,4 @@
 <?php
- // Add pages globle variable 
-$title = $content = $slug = $seotitle = $seodescrition = $seokeyword = '';
-
-// Message Variable
-$message = $error = $success = '';
-
-// User Login Variable
-$email = $password = '';
-
 function login($email, $password, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
 	$stmt = $mysqli->prepare("SELECT username, password FROM tbl_users WHERE email = ? LIMIT 1");
@@ -23,15 +14,13 @@ function login($email, $password, $mysqli) {
 		} else { return false;}
 	}else { return false; }
 }
-function addPage($title, $content, $slug, $seotitle, $seodescrition, $seokeyword, $mysqli) {
-    // Insert the new user into the database 
-	if ($insert_stmt = $mysqli->prepare("INSERT INTO tbl_pages (name, content, slug, seotitle, seodescrition, seokeyword) VALUES (?, ?, ?, ?, ?, ?)")) {
-		$insert_stmt->bind_param('ssssss', $title, $content, $slug, $seotitle, $seodescrition, $seokeyword);
-		// Execute the prepared query.
-		if ($insert_stmt->execute()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+
+function updatePageData($id, $mysqli) {
+	$stmt = $mysqli->prepare("SELECT name, content, seotitle, seodescrition, seokeyword, status FROM tbl_pages WHERE id = ? LIMIT 1");
+	$stmt->bind_param('s', $id);
+	$stmt->execute(); 
+	$stmt->store_result();
+	$stmt->bind_result($name, $content, $seotitle, $seodescrition, $seokeyword, $status);
+	$row = $stmt->fetch();
 }
+

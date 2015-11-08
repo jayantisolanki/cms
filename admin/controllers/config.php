@@ -14,4 +14,12 @@ if ($mysqli->connect_error) {
 define("SITE_URL", "http://localhost/cms/trunk");
 define("BACKEND_URL", "http://localhost/cms/trunk/admin");
 define("SITE_NAME", "Simple CMS | Developed by Jayanti Solanki");
-?>
+
+ // Add pages globle variable 
+$name = $content = $slug = $seotitle = $seodescrition = $seokeyword = $status = '';
+
+// Message Variable
+$message = $error = $success = '';
+
+// User Login Variable
+$email = $password = '';
