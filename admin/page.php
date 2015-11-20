@@ -6,7 +6,14 @@ if(isset($_GET["action"])){$action = $_GET["action"];}else {$action = 'view';}
 if(isset($_GET["id"])){$id = $_GET["id"];}
 if(isset($_GET["error"])){$error = $_GET["error"];}
 if(isset($_GET["success"])){$success = $_GET["success"];}
-if ($action == 'edit'){$row[]=updatePageData($id, $mysqli);}
+if ($action == 'edit'){
+	$stmt = $mysqli->prepare("SELECT name, content, seotitle, seodescrition, seokeyword, status FROM tbl_pages WHERE id = ? LIMIT 1");
+	$stmt->bind_param('s', $id);
+	$stmt->execute(); 
+	$stmt->store_result();
+	$stmt->bind_result($name, $content, $seotitle, $seodescrition, $seokeyword, $status);
+	$row = $stmt->fetch();	
+}
 ?>
 <?php include('templates/header.php');?>
   <div class="row">
@@ -15,7 +22,7 @@ if ($action == 'edit'){$row[]=updatePageData($id, $mysqli);}
       <?php if ($error != '') {echo '<div class="alert alert-danger">'.$error.'</div>';}?>
       <?php if ($success != '') {echo '<div class="alert alert-success">'.$success.'</div>';}?>
       <?php if ($action == 'view') {?>
-      <div class="well">Control padding and rounded corners with two optional modifier classes.</div>
+
       <h2>Page List</h2>
       <div class="table-responsive">
         <table class="table table-hover pageList">
@@ -79,10 +86,10 @@ if ($action == 'edit'){$row[]=updatePageData($id, $mysqli);}
           <label for="seokeyword" class="col-sm-2 control-label">Status</label>
           <div class="col-sm-10">
             <label class="radio-inline">
-              <input type="radio" name="status" value="1">
+              <input type="radio" name="status" value="1" <?php if ($status == 1) echo 'checked'; ?>>
               Active </label>
             <label class="radio-inline">
-              <input type="radio" name="status" value="0">
+              <input type="radio" name="status" value="0" <?php if ($status == 0) echo 'checked'; ?>>
               Inactive </label>
           </div>
         </div>

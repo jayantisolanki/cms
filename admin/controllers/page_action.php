@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$status = $_POST["status"];
 		if (empty($name)) {$message .= 'Enter your page name<br>'; }
 		if (empty($content)) {$message .= 'Enter your page content<br>'; }
-		if (empty($status)) {$status=1;}
+		if ($status == ''	) {$status=1;}
 		if (empty($message)) {
 			if (updatePage($id, $name, $content, $slug, $seotitle, $seodescrition, $seokeyword, $status, $mysqli) == true) {
 				header("Location: ../page.php");exit;	
@@ -33,12 +33,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$seotitle = $_POST["seotitle"];
 		$seodescrition = $_POST["seodescrition"];
 		$seokeyword = $_POST["seokeyword"];
-		//$status = $_POST["status"];
+		$status = $_POST["status"];
 		if (empty($name)) {$message .= 'Enter your page name<br>'; }
 		if (empty($content)) {$message .= 'Enter your page content<br>'; }
-		if (empty($status)) {$status=1;}
+		if ($status == ''	) {$status=1;}
 		if (empty($message)) {
 			if (addPage($name, $content, $slug, $seotitle, $seodescrition, $seokeyword, $status, $mysqli) == true) {
+				
 				$message = 'Paged successfully created';
 				header("Location: ../page.php?success=$message");exit;	
 			} else {
@@ -66,10 +67,9 @@ function addPage($name, $content, $slug, $seotitle, $seodescrition, $seokeyword,
 
 function updatePage($id, $name, $content, $slug, $seotitle, $seodescrition, $seokeyword, $status, $mysqli) {
     // Insert the new user into the database 
-	if ($insert_stmt = $mysqli->prepare("INSERT INTO tbl_pages (name, content, slug, seotitle, seodescrition, seokeyword, status) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
-		$insert_stmt->bind_param('sssssss', $name, $content, $slug, $seotitle, $seodescrition, $seokeyword, $status);
+	if ($update_stmt = $mysqli->prepare("UPDATE tbl_pages SET name='$name', content='$content', slug='$slug', seotitle='$seotitle', seodescrition='$seodescrition', seokeyword='$seokeyword', status='$status' WHERE id = $id;")) {
 		// Execute the prepared query.
-		if ($insert_stmt->execute()) {
+		if ($update_stmt->execute()) {
 			return true;
 		} else {
 			return false;

@@ -16,11 +16,6 @@ function login($email, $password, $mysqli) {
 }
 
 function updatePageData($id, $mysqli) {
-	$stmt = $mysqli->prepare("SELECT name, content, seotitle, seodescrition, seokeyword, status FROM tbl_pages WHERE id = ? LIMIT 1");
-	$stmt->bind_param('s', $id);
-	$stmt->execute(); 
-	$stmt->store_result();
-	$stmt->bind_result($name, $content, $seotitle, $seodescrition, $seokeyword, $status);
-	$row = $stmt->fetch();
+	
 }
 
