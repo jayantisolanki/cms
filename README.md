@@ -20,7 +20,10 @@
 	- Responsive / Support for mobile devices
 	- SEO freindly URL
 	- Search functionality
-
+	- User management
+		- User Profile
+	- News Section
+	
 #Backend 
 	- Pages
 		Title

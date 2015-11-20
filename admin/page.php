@@ -62,6 +62,8 @@ if ($action == 'edit'){
           <label for="content" class="col-sm-2 control-label">Page Content</label>
           <div class="col-sm-10">
             <textarea class="form-control" rows="3" name="content" id="content"><?php echo $content; ?></textarea>
+            <script src="<?php echo BACKEND_URL; ?>/js/ckeditor/ckeditor.js"></script>
+			<script>CKEDITOR.replace( 'content' );</script>
           </div>
         </div>
         <div class="form-group">
