@@ -14,3 +14,9 @@
 </head>
 <body>
 <div class="container">
+<?php $res = $mysqli->query("SELECT * FROM tbl_pages WHERE status = 1 ORDER BY sortOrder ASC"); ?>
+<ul>
+<?php while ($row = $res->fetch_assoc()) { ?>
+	<li><a href="<?php echo SITE_URL.'/'.$row['slug']; ?>" title="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></a></li>
+<?php } ?>
+</ul>

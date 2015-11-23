@@ -3,21 +3,18 @@
 if($_GET['url']){
 	$url=mysql_real_escape_string($_GET['url']);
 	$url=$url; //Friendly URL 
-	$sql=mysql_query("select * from tbl_pages where pageslug='$url';");
-	$count = mysql_num_rows($sql);
-	$row = mysql_fetch_array($sql);
-	$title = $row['pagename'];
-	$body = $row['pagecontent'];
+	$stmt = $mysqli->prepare("SELECT name, content, seotitle, seodescrition, seokeyword, status FROM tbl_pages WHERE slug = ? LIMIT 1");
+	$stmt->bind_param('s', $url);
+	$stmt->execute(); 
+	$stmt->store_result();
+	$stmt->bind_result($name, $content, $seotitle, $seodescrition, $seokeyword, $status);
+	$row = $stmt->fetch();	
 }
 else {
 	echo '404 Page.';
 }
 ?>
 <?php include('templates/header.php'); ?>
-<?php if($count) { ?>
-	<h1><?php echo $title ?></h1>
-    <div class="body"><?php echo $body ?></div>
-<?php } else {?>
-	<h1>404 Page.</h1>
-<?php } ?>
+	<h1><?php echo $name ?></h1>
+    <div class="body"><?php echo $content ?></div>
 <?php include('templates/footer.php'); ?>

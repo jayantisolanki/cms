@@ -17,7 +17,11 @@ if ($action == 'edit'){
 ?>
 <?php include('templates/header.php');?>
   <div class="row">
-    <div class="col-md-3"> <a href="<?php echo BACKEND_URL; ?>/page.php?action=add" class="btn btn-primary btn-lg btn-block" role="button">Add Page</a> </div>
+    <div class="col-md-3">
+    
+    <a href="<?php echo BACKEND_URL; ?>/page.php?action=add" class="btn btn-primary btn-lg btn-block" role="button">Add Page</a>
+    <a href="<?php echo BACKEND_URL; ?>/page.php?action=updateOrder" class="btn btn-primary btn-lg btn-block" role="button">Update Order</a>
+     </div>
     <div class="col-md-9">
       <?php if ($error != '') {echo '<div class="alert alert-danger">'.$error.'</div>';}?>
       <?php if ($success != '') {echo '<div class="alert alert-success">'.$success.'</div>';}?>
