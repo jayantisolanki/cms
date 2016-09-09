@@ -1,5 +1,5 @@
 <?php
-error_reporting(-1);
+error_reporting(0);
 session_start();
 define("HOST", "localhost"); // The host you want to connect to. 
 define("USER", "root"); 	 // The database username. 

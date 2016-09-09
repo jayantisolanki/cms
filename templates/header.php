@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title><?php echo SITE_NAME; ?></title>
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic|Crete+Round:400,400italic' rel='stylesheet' type='text/css'>
 <link type="text/css" href="<?php echo SITE_URL; ?>/css/style.css" rel="stylesheet">

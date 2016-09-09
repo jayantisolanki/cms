@@ -1,7 +1,7 @@
 <?php include('admin/controllers/config.php'); ?>
 <?php
 if($_GET['url']){
-	$url=mysql_real_escape_string($_GET['url']);
+	$url=$_GET['url'];
 	$url=$url; //Friendly URL 
 	$stmt = $mysqli->prepare("SELECT name, content, seotitle, seodescrition, seokeyword, status FROM tbl_pages WHERE slug = ? LIMIT 1");
 	$stmt->bind_param('s', $url);
@@ -16,5 +16,5 @@ else {
 ?>
 <?php include('templates/header.php'); ?>
 	<h1><?php echo $name ?></h1>
-    <div class="body"><?php echo $content ?></div>
+    <?php echo $content ?>
 <?php include('templates/footer.php'); ?>
